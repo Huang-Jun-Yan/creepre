@@ -3,5 +3,7 @@
  * @param baseUrl
  */
 
+ import { post, get } from "./index.js";
 
-export {}
+export const getAdminInfo = (v: any)=> get("http://localhost:3400", v)
+

@@ -1,8 +1,15 @@
 <script setup lang="ts">
+import { getCurrentInstance } from "vue";
+import "./utils/mouseEffect";
+import "./utils/titleRoll";
+
+const { instance }: any = getCurrentInstance();
+
+console.log(instance);
 </script>
 
 <template>
-  <div></div>
+  <router-view />
 </template>
 
 <style scoped lang="scss">

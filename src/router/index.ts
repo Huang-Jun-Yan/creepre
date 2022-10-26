@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
+import { userRouter } from "./userRouter";
 
-const routes: any = [];
+const routes: Array<any> = [userRouter];
 
 const router = createRouter({
   history: createWebHistory(),
