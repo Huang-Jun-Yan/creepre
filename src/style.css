@@ -1,6 +1,6 @@
 :root {
-    /* 移入滚动条颜色 #995ADB*/
-    --themeColor: #995ADB;
+    /* 移入滚动条颜色 #565656*/
+    --themeColor: #565656;
     /* 正常滚动条颜色 #DDDDDD*/
     --normalColor: #DDDDDD;
 }
@@ -10,7 +10,9 @@
     margin: 0;
 }
 
-#app {}
+#app {
+    height: 100vh;
+}
 
 ::-webkit-scrollbar {
     width: 8px;

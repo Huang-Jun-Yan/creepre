@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { getCurrentInstance } from "vue";
+// import { getCurrentInstance } from "vue";
 import "./utils/mouseEffect";
 import "./utils/titleRoll";
 
-const { instance }: any = getCurrentInstance();
+// const { proxy }: any = getCurrentInstance();
 
-console.log(instance);
+// console.log(proxy._debounce);
 </script>
 
 <template>
@@ -15,6 +15,6 @@ console.log(instance);
 <style scoped lang="scss">
 div {
   background-color: $backgroundColor;
-  @include boxShadow;
+//   @include boxShadow;
 }
 </style>

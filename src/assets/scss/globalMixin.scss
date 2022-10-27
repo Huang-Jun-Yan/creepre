@@ -1,5 +1,5 @@
 /* 全局样式 */
-@mixin boxShadow($bulr: 20px, $color: #1989fa7a) {
+@mixin boxShadow($bulr: 20px, $color: #D6D6D6) {
   -webkit-box-shadow: 0px 0px $bulr $color;
   -moz-box-shadow: 0px 0px $bulr $color;
   box-shadow: 0px 0px $bulr $color;

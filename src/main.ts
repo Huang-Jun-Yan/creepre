@@ -5,13 +5,11 @@ import { createPinia } from "pinia"; // vuex 插件
 import piniaPersist from "pinia-plugin-persist"; // pinia 持久化插件
 import axios from "axios";
 import directiveLoading from "./directive/directive-loading"; // 自定义loading函数
-import App from "./App.vue"; // 实例vue
+import App from "./App.vue"; // 引入根节点
 
 import { debounce, throttle } from "underscore"; /* 防抖 debounce 节流 throttle*/
 
-const app = createApp(App);
-
-// console.log(_);
+const app = createApp(App); // 实例vue
 
 //  element-plus UI
 import ElementPlus from "element-plus";

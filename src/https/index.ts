@@ -1,4 +1,8 @@
 import axios from "axios";
+import { load } from "../components/loading/loading";
+import { getCurrentInstance } from "vue";
+
+const { proxy }: any = getCurrentInstance();
 
 const $http = axios.create({
   baseURL: import.meta.env.VITE_BASE_URL,
@@ -10,7 +14,7 @@ const $http = axios.create({
 $http.interceptors.request.use(
   function (config) {
     // 在发送请求之前做些什么   http://creepre.top/
-
+    proxy._debounce(load.show(), 500);
     return config;
   },
   function (error) {
@@ -23,9 +27,9 @@ $http.interceptors.request.use(
 $http.interceptors.response.use(
   function (response) {
     // 对响应数据做点什么
-    // setTimeout(() => {
-    //   load.hide();
-    // }, 300);
+    setTimeout(() => {
+      proxy._debounce(load.hide(), 500);
+    }, 300);
 
     return response;
   },
