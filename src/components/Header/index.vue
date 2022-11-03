@@ -2,9 +2,9 @@
 </script>
 
 <template>
-  <div id="creepre_header">
-    Header
-  </div>
+  <header id="creepre_header">
+    <slot></slot>
+  </header>
 </template>
 
 
@@ -12,6 +12,6 @@
 <style scoped lang="scss">
 #creepre_header {
   height: 64px;
-  @include boxShadow;
+  @include boxShadow
 }
 </style>

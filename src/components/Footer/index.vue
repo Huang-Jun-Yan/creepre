@@ -2,9 +2,9 @@
 </script>
 
 <template>
-  <div id="creepre_footer">
-    底部
-  </div>
+  <footer id="creepre_footer">
+    <slot></slot>
+  </footer>
 </template>
 
 

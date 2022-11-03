@@ -2,9 +2,9 @@
 </script>
 
 <template>
-  <div id="creepre_content">
-    内容区
-  </div>
+  <content id="creepre_content">
+    <slot></slot>
+  </content>
 </template>
 
 

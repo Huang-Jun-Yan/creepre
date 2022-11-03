@@ -6,85 +6,369 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Creepre 苦力怕</title>
     <style>
-      .flex-center {
+      #center {
+        height: 90vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        user-select: none;
+        flex-direction: column;
+      }
+      #center .name {
+        margin: 20px 0;
+      }
+      #center .name span:nth-child(4) {
+        animation: loading 4s linear infinite;
+      }
+      #center .name span:nth-child(5) {
+        animation: loading 3s linear infinite;
+      }
+      #center .name span:nth-child(6) {
+        animation: loading 2s linear infinite;
+      }
+      #center .steve {
+        width: 160px;
+        height: 320px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+      #center .steve .head {
+        width: 80px;
+        height: 80px;
+        background-color: #d2ab8e;
+        position: relative;
+        transform: translateY(-1px);
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 0px,
+          rgba(0, 0, 0, 0.23) 0px 3px 0px;
+      }
+      #center .steve .head::after {
+        content: "";
+        position: absolute;
+        height: 30px;
+        width: 5px;
+        left: -5px;
+        top: 45%;
+        background-color: #cc9a74;
+      }
+      #center .steve .head::before {
+        content: "";
+        position: absolute;
+        height: 30px;
+        width: 5px;
+        right: -5px;
+        top: 45%;
+        background-color: #cc9a74;
+      }
+      #center .steve .head .hair {
+        height: 20px;
+        background-color: #000;
+        display: flex;
+        justify-content: space-between;
+      }
+      #center .steve .head .greyHair {
+        height: 30px;
+        width: 10px;
+        background-color: #000;
+      }
+      #center .steve .head .eyes {
+        height: 10px;
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        display: flex;
+        justify-content: space-evenly;
+      }
+      #center .steve .head .eyes .left,
+      #center .steve .head .eyes .right {
+        width: 20px;
+        background-color: #fff;
+      }
+      #center .steve .head .eyes .left .pupil {
+        height: 10px;
+        width: 10px;
+        background-color: #000;
+        margin-left: 10px;
+        animation: leftPupil 1s linear infinite;
+      }
+      #center .steve .head .eyes .right .pupil {
+        height: 10px;
+        width: 10px;
+        background-color: #000;
+        animation: rightPupil 1s linear infinite;
+      }
+      #center .steve .head .mouth {
+        height: 10px;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
         display: flex;
         justify-content: center;
-        align-items: center;
-        height: 90vh;
       }
-      .four-balls {
+      #center .steve .head .mouth .lips {
+        background-color: #cb8f86;
+        width: 40px;
+        height: 10px;
+        position: relative;
+      }
+      #center .steve .head .mouth .lips::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 10px;
+        background-color: #cb8f86;
+        top: -5px;
+        left: 25%;
+      }
+      #center .steve .body {
+        height: 130px;
+        width: 100%;
+        display: flex;
+        perspective: 200px;
+        transform-style: preserve-3d;
+      }
+      #center .steve .body .bodyChild {
+        width: 80px;
+        height: 130px;
+        background-color: #2c6d99;
+        display: flex;
+        align-items: center;
+        position: relative;
+        flex-direction: column;
+      }
+      #center .steve .body .bodyChild .logo {
+        color: #bebdc0;
+        text-align: center;
         height: 50px;
         width: 50px;
-        animation: four-balls-rotate 1s infinite;
+        letter-spacing: 9px;
+        transform: translateX(4px);
+        font-weight: bold;
       }
-
-      .four-balls:before,
-      .four-balls:after {
-        border-radius: 50%;
+      #center .steve .body .bodyChild::after {
         content: "";
-        display: block;
-        height: 20px;
+        width: 60px;
+        height: 10px;
+        position: absolute;
+        top: 110px;
+        left: 0;
+        background-color: #1f1995;
+      }
+      #center .steve .body .bodyChild::before {
+        content: "";
+        width: 70px;
+        height: 10px;
+        position: absolute;
+        top: 120px;
+        left: 0;
+        background-color: #1f1995;
+      }
+      #center .steve .body .bodyChild .collar {
+        border: 20px solid transparent;
+        border-top: 30px solid #d2ab8e;
+        width: 0;
+        height: 0;
+        margin: 0;
+      }
+      #center .steve .body .hand {
+        width: 40px;
+        height: 130px;
+        background-color: #d2ab8e;
+      }
+      #center .steve .body .left .shoulder {
+        width: 40px;
+        height: 40px;
+        background-color: #2c6d99;
+      }
+      #center .steve .body .hand.left {
+        animation: handLeftMove 2s linear infinite alternate;
+        transform-origin: 40px 0 0;
+      }
+      #center .steve .body .right .shoulder {
+        width: 40px;
+        height: 40px;
+        background-color: #2c6d99;
+      }
+      #center .steve .body .hand.right {
+        animation: handRightMove 2s linear infinite alternate;
+        transform-origin: 0 0 0;
+      }
+      #center .steve .foot {
+        height: 110px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+      #center .steve .foot .leftFoot,
+      .rightFoot {
+        height: 110px;
+        width: 38px;
+        background-color: #1f1995;
+        display: flex;
+        align-items: flex-end;
+        position: relative;
+      }
+      #center .steve .foot .leftFoot {
+        transform-origin: 50% 0 0;
+        transform: translateX(-1px);
+      }
+      #center .steve .foot .leftFoot::after {
+        content: "";
+        position: absolute;
         width: 20px;
+        height: 10px;
+        top: 35%;
+        left: 22%;
+        background-color: #242326;
       }
-      .four-balls:before {
-        animation: ball1 1s infinite;
-        background-color: #cb2025;
-        box-shadow: 30px 0 0 #f8b334;
-        margin-bottom: 10px;
+      #center .steve .foot .rightFoot {
+        transform-origin: 50% 0 0;
+        transform: translateX(1px);
       }
-      .four-balls:after {
-        animation: ball2 1s infinite;
-        background-color: #00a096;
-        box-shadow: 30px 0 0 #97bf0d;
+      #center .steve .foot .rightFoot::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 10px;
+        top: 35%;
+        left: 22%;
+        background-color: #242326;
       }
-
-      @keyframes four-balls-rotate {
+      @keyframes handRightMove {
         0% {
-          transform: rotate(0deg) scale(0.8);
+          transform: rotate(0deg);
         }
         50% {
-          transform: rotate(360deg) scale(1.2);
+          transform: rotate(-4deg);
+        }
+        80% {
+          transform: rotate(-6deg);
         }
         100% {
-          transform: rotate(720deg) scale(0.8);
+          transform: rotate(0deg);
         }
       }
-
-      @keyframes ball1 {
+      @keyframes handLeftMove {
         0% {
-          box-shadow: 30px 0 0 #f8b334;
+          transform: rotate(0deg);
         }
         50% {
-          box-shadow: 0 0 0 #f8b334;
-          margin-bottom: 0;
-          transform: translate(15px, 15px);
+          transform: rotate(4deg);
+        }
+        80% {
+          transform: rotate(6deg);
         }
         100% {
-          box-shadow: 30px 0 0 #f8b334;
-          margin-bottom: 10px;
+          transform: rotate(2deg);
         }
       }
-
-      @keyframes ball2 {
+      @keyframes leftPupil {
         0% {
-          box-shadow: 30px 0 0 #97bf0d;
+          transform: translateX(0px);
         }
         50% {
-          box-shadow: 0 0 0 #97bf0d;
-          margin-top: -20px;
-          transform: translate(15px, 15px);
+          transform: translateX(-10px);
+          opacity: 0.2;
         }
         100% {
-          box-shadow: 30px 0 0 #97bf0d;
-          margin-top: 0;
+          transform: translateX(0px);
+        }
+      }
+      @keyframes rightPupil {
+        0% {
+          transform: translateX(0px);
+        }
+        50% {
+          transform: translateX(10px);
+          opacity: 0.2;
+        }
+        100% {
+          transform: translateX(0px);
+        }
+      }
+      @keyframes loading {
+        0% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
         }
       }
     </style>
   </head>
   <body>
     <div id="app">
-      <div class="flex-center">
-        <div class="loading four-balls"></div>
+      <div id="center">
+        <!-- 名字 -->
+        <div class="name">
+          <span>加</span>
+          <span>载</span>
+          <span>中</span>
+          <span>.</span>
+          <span>.</span>
+          <span>.</span>
+        </div>
+        <!-- steve  -->
+        <div class="steve">
+          <!-- 头 -->
+          <div class="head">
+            <!-- 头发 -->
+            <div class="hair">
+              <!-- 发鬓 -->
+              <div class="greyHair left"></div>
+              <div class="greyHair right"></div>
+            </div>
+            <!-- 眼睛 -->
+            <div class="eyes">
+              <div class="left">
+                <div class="pupil"></div>
+              </div>
+              <div class="right">
+                <div class="pupil"></div>
+              </div>
+            </div>
+            <!-- 嘴 -->
+            <div class="mouth">
+              <!-- 嘴唇 -->
+              <div class="lips"></div>
+            </div>
+          </div>
+          <!-- 身体 -->
+          <div class="body">
+            <!-- 左手 -->
+            <div class="hand left">
+              <div class="shoulder"></div>
+            </div>
+            <!-- 身体 -->
+            <div class="bodyChild">
+              <!-- 衣领 -->
+              <div class="collar"></div>
+              <!-- logo -->
+              <div class="logo">苦力怕</div>
+            </div>
+            <!-- 右手 -->
+            <div class="hand right">
+              <div class="shoulder"></div>
+            </div>
+          </div>
+          <!-- 脚 -->
+          <div class="foot">
+            <div class="leftFoot">
+              <div
+                class="shoes"
+                style="height: 20px; background-color: #a5a3a7; width: 38px"
+              ></div>
+            </div>
+            <div class="rightFoot">
+              <div
+                class="shoes"
+                style="height: 20px; background-color: #a5a3a7; width: 38px"
+              ></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <script type="module" src="/src/main.ts"></script>
